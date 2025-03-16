@@ -1,4 +1,4 @@
-import React, {useState}, {useEffect()} from 'react'
+import React, {useState} from 'react'
 import icon from '/headerlogo.png'
 import menuIcon from '/menu_icon.svg'
 import crossIcon from '/cross_icon.svg'
@@ -10,7 +10,12 @@ const Navbar = () => {
     useEffect (() => {
         if(showMobileMenu) {
             document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
         }
+        return () => {
+            document.body.style.overflow = 'auto'
+        };
     }, [showMobileMenu])
     return (
         <div className='absolute top-0 left-0 w-full z-10'>
